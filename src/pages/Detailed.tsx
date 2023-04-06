@@ -1,4 +1,4 @@
-import { FC, FormEvent, useEffect, useState } from "react";
+import React, { FC, FormEvent, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
@@ -22,7 +22,7 @@ const Detailed: FC = () => {
 
   const [loading, setLoading] = useState<boolean>(true);
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const params = useParams();
+  const params = useParams<{ detail: string }>();
   const MySwal = withReactContent(Swal);
   const navigate = useNavigate();
   let token = "5b14ff8f5f4ae0031083d8e861ec12c59c48339b";
@@ -50,7 +50,7 @@ const Detailed: FC = () => {
       .finally(() => setLoading(false));
   }
 
-  function handleChange(value: string | File, key: keyof typeof objSubmit) {
+  function handleChange(value: any, key: keyof typeof objSubmit) {
     let temp = { ...objSubmit };
     temp[key] = value;
     setObjSubmit(temp);
@@ -62,7 +62,7 @@ const Detailed: FC = () => {
     const formData = new FormData();
     let key: keyof typeof objSubmit;
     for (key in objSubmit) {
-      formData.append(key, objSubmit[key]);
+      formData.append(key, objSubmit[key] as string);
     }
     axios
       .post(`tasks/${id}`, formData, {
@@ -146,7 +146,7 @@ const Detailed: FC = () => {
                       }
                     />
                     <Input
-                      placeholder="(type numbuer)"
+                      placeholder="(type 1 to comleted tasks)"
                       id="input-content"
                       onChange={(event) =>
                         handleChange(event.target.value, "priority")

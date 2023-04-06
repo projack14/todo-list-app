@@ -20,6 +20,7 @@ export const Form: FC<Props> = (props) => {
 
 export const Box: FC<Props> = (props) => {
   const backgroundColor = getRandomColor();
+
   return (
     <div
       className="flex flex-col justify-center items-center rounded-2xl w-full"
