@@ -126,13 +126,13 @@ const Detailed: FC = () => {
 
   return (
     <Layout>
-      <div className="w-[70%] h-[90%] md:h-[80%] ">
-        <Box>
-          {" "}
+      <div className="flex flex-col items-center justify-center w-full h-[90%] md:w-[60%]  ">
+        <Form>
           <div className="flex flex-col gap-4 p-3 justify-center items-center w-full h-min">
             <p className=" text-xl text-slate-900 dark:text-slate-200 font-bold tracking-wider">
               Detail:
             </p>
+
             {isEdit ? (
               <form onSubmit={(event) => handleSubmit(event)}>
                 <div className="flex flex-col gap-3 w-full h-full">
@@ -177,28 +177,27 @@ const Detailed: FC = () => {
               </div>
             )}
           </div>
-          <div className="flex flex-col p-3 justify-center items-center gap-2">
-            <Button
-              label="Back to home"
-              id="nav-home"
-              onClick={() => navigate("/")}
-            />
+        </Form>
+        <div className="flex flex-col p-3 w-[80%]  lg:w-[50%] gap-2">
+          <Button
+            label="Back to home"
+            id="nav-home"
+            onClick={() => navigate("/")}
+          />
+          <Button
+            label="Edit Task"
+            id="button-edit"
+            onClick={() => {
+              setIsEdit(!isEdit);
+            }}
+          />
 
-            <Button
-              label="Edit Task"
-              id="button-edit"
-              onClick={() => {
-                setIsEdit(!isEdit);
-              }}
-            />
-
-            <Button
-              label="Delete Task"
-              id="button-delete"
-              onClick={() => handleDelete()}
-            />
-          </div>
-        </Box>
+          <Button
+            label="Delete Task"
+            id="button-delete"
+            onClick={() => handleDelete()}
+          />
+        </div>
       </div>
     </Layout>
   );

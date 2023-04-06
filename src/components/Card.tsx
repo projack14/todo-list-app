@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { Box } from "./Form";
 
 interface Props {
   content: string;
@@ -14,24 +15,22 @@ export const Card: FC<Props> = (props) => {
   const taskDone = isCompleted === "COMPLETED" ? true : false;
 
   return (
-    <Link to={`/detailed/${id}`}>
-      <div
-        className={`${
-          taskDone ? " bg-red-500" : "bg-inherit"
-        }flex flex-col items-center p-3`}
-      >
-        <p
-          className={`${
-            taskDone ? "line-through" : "bg-inherit"
-          } text-sm text-slate-900 dark:text-slate-200 uppercase`}
-        >
-          {content}
-        </p>
-        <p className="text-sm text-slate-900 dark:text-slate-200">
-          {isCompleted}
-        </p>
-      </div>
-    </Link>
+    <Box>
+      <Link to={`/detailed/${id}`}>
+        <div className="flex-col md:flex-row flex items-center justify-between ">
+          <p
+            className={`${
+              taskDone ? "line-through" : "bg-inherit"
+            } text-sm text-slate-900 dark:text-slate-200 uppercase`}
+          >
+            {content}
+          </p>
+          <p className="text-sm text-slate-900 dark:text-slate-200">
+            {isCompleted}
+          </p>
+        </div>
+      </Link>
+    </Box>
   );
 };
 

@@ -142,33 +142,29 @@ const Home: FC = () => {
             </form>
           </div>
         </Form>
-        <Form>
-          <div className="w-full flex flex-col items-center gap-4 min-h-[60%]">
-            <p className=" text-xl text-slate-900 dark:text-slate-200 font-bold tracking-wider">
-              Task List:
-            </p>
 
-            <div className="grid gap-2 p-5 grid-cols-2 md:grid-cols-4 lg:grid-cols-6 w-[90%]">
-              {loading ? (
-                <Spinner />
-              ) : (
-                datas.map((data, idx) => {
-                  return (
-                    <Box>
-                      <Card
-                        key={idx}
-                        content={data.content}
-                        description={data.description}
-                        priority={data.priority}
-                        id={data.id}
-                      />
-                    </Box>
-                  );
-                })
-              )}
-            </div>
+        <div className="w-full flex flex-col items-center gap-4">
+          <p className=" text-xl text-slate-900 dark:text-slate-200 font-bold tracking-wider">
+            Task List:
+          </p>
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-64 md:h-90 lg:h-80 w-full ">
+            {loading ? (
+              <Spinner />
+            ) : (
+              datas.map((data, idx) => {
+                return (
+                  <Card
+                    key={idx}
+                    content={data.content}
+                    description={data.description}
+                    priority={data.priority}
+                    id={data.id}
+                  />
+                );
+              })
+            )}{" "}
           </div>
-        </Form>
+        </div>
       </div>
     </Layout>
   );
