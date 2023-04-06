@@ -1,0 +1,40 @@
+.loading-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-bar {
+  width: 4px;
+  height: 18px;
+  margin: 0 2px;
+  border-radius: 2px;
+  background-color: #333;
+  animation: loading 1s ease-in-out infinite;
+}
+
+.loaded-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1, 2.5);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
