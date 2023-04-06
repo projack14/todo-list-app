@@ -177,7 +177,7 @@ const Detailed: FC = () => {
               </div>
             )}
           </div>
-          <div className="flex flex-row p-3 justify-center items-center gap-2">
+          <div className="flex flex-col p-3 justify-center items-center gap-2">
             <Button
               label="Back to home"
               id="nav-home"
