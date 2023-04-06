@@ -12,7 +12,7 @@ const getRandomColor = () => {
 
 export const Form: FC<Props> = (props) => {
   return (
-    <div className=" flex flex-col justify-center items-center bg-slate-300 dark:bg-slate-800  rounded-2xl w-[100%] ">
+    <div className=" flex flex-col justify-center items-center bg-slate-300 dark:bg-slate-800  rounded-2xl w-[80%] lg:w-[50%] ">
       {props.children}
     </div>
   );
@@ -23,10 +23,11 @@ export const Box: FC<Props> = (props) => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center rounded-2xl w-full"
+      className="flex justify-center items-center rounded-2xl w-full"
       style={{ backgroundColor }}
     >
-      {props.children}
+      {" "}
+      <div>{props.children}</div>
     </div>
   );
 };

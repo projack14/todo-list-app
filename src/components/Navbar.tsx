@@ -44,14 +44,15 @@ const Navbar: FC = () => {
   }
 
   return (
-    <nav className="bg-cyan-900 dark:bg-slate-800 w-full h-12 flex items-center justify-between p-5">
+    <nav className="flex bg-cyan-900 dark:bg-slate-800 w-full h-12 items-center justify-center md:justify-around lg:justify-between p-5 ">
       <Link to="/">
-        <div className="flex flex-row ">
+        <div className="flex flex-row">
           <img src={Images} alt="" />
-          <p className="text-white p-2 font-bold text-3xl">TODO LIST APP</p>
         </div>
       </Link>
-
+      <div>
+        <p className=" text-white p-2  font-bold text-3xl">TODO LIST APP</p>
+      </div>
       <Menu as="div" className=" relative inline-block text-left">
         <div className="flex flex-row items-center">
           <div className="p-3">
