@@ -17,7 +17,7 @@ export const Card: FC<Props> = (props) => {
   return (
     <Box>
       <Link to={`/detailed/${id}`}>
-        <div className="flex-col md:flex-row flex items-center justify-between ">
+        <div className="flex flex-col md:flex-row  items-center justify-between ">
           <p
             className={`${
               taskDone ? "line-through" : "bg-inherit"
@@ -25,6 +25,8 @@ export const Card: FC<Props> = (props) => {
           >
             {content}
           </p>
+        </div>
+        <div className="flex flex-col md:flex-row  items-center justify-between ">
           <p className="text-sm text-slate-900 dark:text-slate-200">
             {isCompleted}
           </p>
